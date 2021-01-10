@@ -9,7 +9,7 @@ var svg = d3.select("body").append("svg")
     setTimeout(function() {
       features.push(feature)
       var group = svg.selectAll("g")
-        .data(data.features)
+        .data(features)
         .enter()
         .append("g")
 
