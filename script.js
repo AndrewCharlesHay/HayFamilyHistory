@@ -1,8 +1,7 @@
-async function drawMap() {
 var svg = d3.select("body").append("svg")
   .attr("width", 960*2)
   .attr("height", 1160*2)
- d3.json("places.geojson", function(error, data) {
+ d3.json("places.geojson", function(error, data) async {
    let features = [];
    const millisecondsToWait = 500;
    for(let i = 0; i < data.features.length; i++){
@@ -22,8 +21,6 @@ var svg = d3.select("body").append("svg")
      await sleep(millisecondsToWait);
    };
   });
-}
 async function sleep(msec) {
     return new Promise(resolve => setTimeout(resolve, msec));
 }
-drawMap();
