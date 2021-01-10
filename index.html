@@ -11,8 +11,7 @@
   </head>
   <body>
     <div id = "svgcontainer">
-      <svg>
-      </svg>
+      
     </div>
     
     <script>
@@ -25,7 +24,7 @@
       var path = d3.geoPath(projection);
       svg.append("path")
       .datum({type: "FeatureCollection", features: {}})
-      .attr("d", d3.geoPath());
+      .attr("d", path);
     </script>
   </body>
 </html>
