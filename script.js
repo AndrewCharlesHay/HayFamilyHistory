@@ -1,6 +1,6 @@
 var svg = d3.select("body").append("svg")
-  .attr("width", 9600)
-  .attr("height", 11600)
+  .attr("width", 960)
+  .attr("height", 1160)
  d3.json("places.geojson", async function(error, data) {
    let features = [];
    const millisecondsToWait = 500;
