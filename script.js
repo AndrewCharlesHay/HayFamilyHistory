@@ -19,9 +19,9 @@ const paragraph = d3.select("body").append("p")
         .attr("d", path)
         .attr("class", "area")
         .attr("fill", "steelblue");
-     const description = data.features[i].description;
-     if(description){
-      paragraph.text(description);
+     const name = data.features[i].name;
+     if(name){
+      paragraph.text(name);
      }
      await sleep(millisecondsToWait);
    };
