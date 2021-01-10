@@ -6,7 +6,6 @@ var svg = d3.select("body").append("svg")
    let features = [];
    const millisecondsToWait = 500;
    for(let i = 0; i < data.features.length(); i++){
-    setTimeout(function() {
       features.push(data.features[i])
       var group = svg.selectAll("g")
         .data(features)
@@ -20,6 +19,9 @@ var svg = d3.select("body").append("svg")
         .attr("d", path)
         .attr("class", "area")
         .attr("fill", "steelblue");
-    }, millisecondsToWait);
+     sleep(millisecondsToWait);
    };
 });
+async function sleep(msec) {
+    return new Promise(resolve => setTimeout(resolve, msec));
+}
