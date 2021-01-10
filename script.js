@@ -5,8 +5,8 @@ var svg = d3.select("body").append("svg")
  d3.json("places.geojson", function(error, data) {
    let features = [];
    var millisecondsToWait = 500;
-   setTimeout(function() {
-    for(feature in data.features){
+   for(feature in data.features){
+    setTimeout(function() {
       features.push(feature)
       var group = svg.selectAll("g")
         .data(data.features)
@@ -20,6 +20,6 @@ var svg = d3.select("body").append("svg")
         .attr("d", path)
         .attr("class", "area")
         .attr("fill", "steelblue")
-    }
-  }, millisecondsToWait);
+    }, millisecondsToWait);
+   }
 });
