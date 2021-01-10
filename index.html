@@ -25,10 +25,9 @@
       
       const projection = d3.geoEqualEarth();
       const path = d3.geoPath(projection);
-      svg.selectAll("path")
-      .data({})
-      .enter().append("path")
-      .attr("d", path);
+      svg.append("path")
+    .datum({type: "FeatureCollection", features: {}})
+    .attr("d", path);
     </script>
   </body>
 </html>
