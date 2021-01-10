@@ -59,12 +59,8 @@
             .scale(scale)
             .translate(offset);
 
-        svg.selectAll(".province")
-            .data(topojson.feature(be, be.objects.provinces).features)
-            .enter().append("path")
-            .attr("class", function(d) { return "province " + d.id })
-            .attr("d", path)
-        ;
+        svg.append("path")
+        .attr("d", path);
     })
     </script>
   </body>
