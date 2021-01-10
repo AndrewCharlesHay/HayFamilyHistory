@@ -49,7 +49,7 @@
         scale   = (hscale < vscale) ? hscale : vscale;
         offset  = [width - (bounds[0][0] + bounds[1][0])/2,
             height - (bounds[0][1] + bounds[1][1])/2];
-        var centroid = d3.geo.centroid(topojson.feature(be, be.objects.subunits));
+        var centroid = d3.geoCentroid(topojson.feature(be, be.objects.subunits));
         center = [0, centroid[1]];
         rotate = [-centroid[0],0];
         projection = d3.geoAlbers()
