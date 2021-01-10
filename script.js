@@ -1,4 +1,4 @@
-
+async function drawMap() {
 var svg = d3.select("body").append("svg")
   .attr("width", 960*2)
   .attr("height", 1160*2)
@@ -25,3 +25,5 @@ var svg = d3.select("body").append("svg")
 async function sleep(msec) {
     return new Promise(resolve => setTimeout(resolve, msec));
 }
+}
+drawMap()
