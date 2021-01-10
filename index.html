@@ -17,14 +17,17 @@
     <script>
       const width = 500;
       const height = 500;
-      var svg = d3.select("#svgcontainer")
-      .append("svg").attr("width", width).attr("height", height);
+      const map = {
+        var svg = d3.select("#svgcontainer")
+        .append("svg").attr("width", width).attr("height", height);
       
-      var projection = d3.geoEqualEarth();
-      var path = d3.geoPath(projection);
-      svg.append("path")
-      .datum({type: "FeatureCollection", features: {}})
-      .attr("d", path);
+        var projection = d3.geoEqualEarth();
+        var path = d3.geoPath(projection);
+        svg.append("path")
+        .datum({type: "FeatureCollection", features: {}})
+        .attr("d", path);
+        return svg.node()
+      }
     </script>
   </body>
 </html>
