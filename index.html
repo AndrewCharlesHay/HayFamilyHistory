@@ -40,7 +40,7 @@
         .attr("width",width)
         .attr("height",height)
     ;
-    d3.json("belprov.json",function(error,be){
+    d3.json("data.json",function(error,be){
         if (error) return console.error(error);
 
         var bounds  = path.bounds(topojson.feature(be, be.objects.subunits));
