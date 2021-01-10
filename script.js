@@ -19,7 +19,7 @@ var svg = d3.select("body").append("svg")
         .attr("d", path)
         .attr("class", "area")
         .attr("fill", "steelblue");
-     sleep(millisecondsToWait);
+     await sleep(millisecondsToWait);
    };
 });
 async function sleep(msec) {
