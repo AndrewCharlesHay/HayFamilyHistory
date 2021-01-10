@@ -8,18 +8,11 @@
     </script><script src="https://d3js.org/d3-array.v2.min.js"></script>
     <script src="https://d3js.org/d3-geo.v2.min.js"></script>
     <script>
-      // Update…
-      var p = d3.select("body")
-      .selectAll("p")
-      .data([4, 8, 15, 16, 23, 42])
-      .text(function(d) { return d; });
-
-      // Enter…
-      p.enter().append("p")
-      .text(function(d) { return d; });
-
-      // Exit…
-      p.exit().remove();
+      d3.select("body")
+  .selectAll("p")
+  .data([4, 8, 15, 16, 23, 42])
+  .enter().append("p")
+    .text(function(d) { return "I’m number " + d + "!"; });
     </script>
 
   </head>
