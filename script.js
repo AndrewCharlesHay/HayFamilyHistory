@@ -5,7 +5,7 @@ var svg = d3.select("body").append("svg")
  d3.json("places.geojson", function(error, data) {
    let features = [];
    const millisecondsToWait = 500;
-   for(let i = 0; i < data.features.length(); i++){
+   for(let i = 0; i < data.features.length; i++){
       features.push(data.features[i])
       var group = svg.selectAll("g")
         .data(features)
