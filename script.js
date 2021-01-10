@@ -21,9 +21,9 @@ var svg = d3.select("body").append("svg")
         .attr("fill", "steelblue");
      await sleep(millisecondsToWait);
    };
-});
+  });
+}
 async function sleep(msec) {
     return new Promise(resolve => setTimeout(resolve, msec));
-}
 }
 drawMap();
