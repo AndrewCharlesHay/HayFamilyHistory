@@ -9,17 +9,17 @@
     <script src="https://d3js.org/d3-geo.v2.min.js"></script>
     <script>
       // Update…
-var p = d3.select("body")
-  .selectAll("p")
-  .data([4, 8, 15, 16, 23, 42])
-    .text(function(d) { return d; });
+      var p = d3.select("body")
+      .selectAll("p")
+      .data([4, 8, 15, 16, 23, 42])
+      .text(function(d) { return d; });
 
-// Enter…
-p.enter().append("p")
-    .text(function(d) { return d; });
+      // Enter…
+      p.enter().append("p")
+      .text(function(d) { return d; });
 
-// Exit…
-p.exit().remove();
+      // Exit…
+      p.exit().remove();
     </script>
 
   </head>
