@@ -52,7 +52,7 @@
         var centroid = d3.geo.centroid(topojson.feature(be, be.objects.subunits));
         center = [0, centroid[1]];
         rotate = [-centroid[0],0];
-        projection = d3.geo.albers()
+        projection = d3.geoAlbers()
             .center(center)
             .rotate(rotate)
             .parallels(parallels)
