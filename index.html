@@ -33,7 +33,7 @@
         .scale(scale)
         .translate(offset)
     ;
-    var path = d3.geo.path()
+    var path = d3.geoPath()
         .projection(projection)
     ;
     var svg = d3.select("#svgcontainer").append("svg")
