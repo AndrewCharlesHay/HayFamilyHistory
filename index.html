@@ -8,11 +8,11 @@
     </script><script src="https://d3js.org/d3-array.v2.min.js"></script>
     <script src="https://d3js.org/d3-geo.v2.min.js"></script>
     <script>
-   {
-  const div = document.createElement("div");
-  div.innerHTML = "Hello, world!";
-  return div;
-}
+   const span = d3.create("span");
+  span.style("color", "white");
+  span.style("background-color", "black");
+  span.html("Hello, world!");
+  return span.node();
     </script>
 
   </head>
