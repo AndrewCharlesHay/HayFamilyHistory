@@ -30,7 +30,7 @@ const [svg, card, cardBody, header, paragraph] = buildPage();
 async function sleep(msec) {
     return new Promise(resolve => setTimeout(resolve, msec));
 }
-funtion buildPage() {
+function buildPage() {
   const svg = d3.select("body").append("svg")
     .attr("width", 960)
     .attr("height", 580);
