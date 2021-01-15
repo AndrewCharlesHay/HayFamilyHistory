@@ -31,7 +31,7 @@ d3.json("places.geojson", async function(error, data) {
 async function sleep(msec) {
     return new Promise(resolve => setTimeout(resolve, msec));
 }
-buildPage = () => {
+function buildPage() {
   const svg = d3.select("body").append("svg")
     .attr("width", 960)
     .attr("height", 580);
@@ -46,7 +46,7 @@ buildPage = () => {
     .attr("class", "card-text");
   return [svg, card, cardBody, header, p];
 }
-buildParagraph = (data) => {
+function buildParagraph(data) {
  if(!data.event || !data.dateOfEvent || !data.location){
   return "";
  }
