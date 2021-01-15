@@ -1,10 +1,4 @@
-const svg = d3.select("body").append("svg")
-  .attr("width", 960)
-  .attr("height", 580);
-const card = d3.select("body").append("div")
-  .attr("class", "card");
-const cardBody = card.append("div").attr("class", "card-body");
-const header = cardBody.append("h5").attr("class", "card-title");
+const [svg, card, cardBody, header, paragraph] = buildPage();
  d3.json("places.geojson", async function(error, data) {
    let features = [];
    const millisecondsToWait = 500;
@@ -35,4 +29,19 @@ const header = cardBody.append("h5").attr("class", "card-title");
   });
 async function sleep(msec) {
     return new Promise(resolve => setTimeout(resolve, msec));
+}
+funtion buildPage() {
+  const svg = d3.select("body").append("svg")
+    .attr("width", 960)
+    .attr("height", 580);
+  const card = d3.select("body").append("div")
+    .attr("class", "card")
+    .attr("style", "width: 18rem;");
+  const cardBody = card.append("div")
+    .attr("class", "card-body");
+  const header = cardBody.append("h5")
+    .attr("class", "card-title");
+  const paragraph = cardBody.append("p")
+    .attr("class", "card-text");
+  return [svg, card, cardBody, header, paragraph];
 }
