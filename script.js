@@ -1,6 +1,6 @@
-var svg = d3.select("body").append("svg")
+const svg = d3.select("body").append("svg")
   .attr("width", 960)
-  .attr("height", 580)
+  .attr("height", 580);
 const card = d3.select("body").append("div")
   .attr("class", "card");
 const cardBody = card.append("div").attr("class", "card-body");
