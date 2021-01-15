@@ -1,7 +1,9 @@
 var svg = d3.select("body").append("svg")
   .attr("width", 960)
   .attr("height", 580)
-const paragraph = d3.select("body").append("p")
+const card = d3.select("body").append("div")
+  .attr("class", "card");
+const cardBody = card.append("div").attr("class", "card-body");
  d3.json("places.geojson", async function(error, data) {
    let features = [];
    const millisecondsToWait = 500;
@@ -19,9 +21,13 @@ const paragraph = d3.select("body").append("p")
         .attr("d", path)
         .attr("class", "area")
         .attr("fill", "steelblue");
+     const img = data.features[i].name;
+     if(img){
+       card.append("img").attr("class", "card-image-top").attr("src", img);
+     }
      const name = data.features[i].name;
      if(name){
-      paragraph.text(name);
+       paragraph.text(name);
      }
      await sleep(millisecondsToWait);
    };
