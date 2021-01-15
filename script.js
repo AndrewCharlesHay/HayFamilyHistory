@@ -1,7 +1,7 @@
-const [svg, card, cardBody, header, paragraph] = buildPage();
- d3.json("places.geojson", async function(error, data) {
-   let features = [];
-   const millisecondsToWait = 500;
+const [svg, card, cardBody, header, p] = buildPage();
+let features = [];
+const millisecondsToWait = 500;
+d3.json("places.geojson", async function(error, data) {
    for(let i = 0; i < data.features.length; i++){
       features.push(data.features[i])
       var group = svg.selectAll("g")
@@ -16,21 +16,22 @@ const [svg, card, cardBody, header, paragraph] = buildPage();
         .attr("d", path)
         .attr("class", "area")
         .attr("fill", "steelblue");
-     const img = data.features[i].name;
-     if(img){
-       card.append("img").attr("class", "card-image-top").attr("src", img);
-     }
-     const name = data.features[i].name;
-     if(name){
-       header.text(name);
-     }
-     await sleep(millisecondsToWait);
+    const img = data.features[i].name;
+    if(img){
+      card.append("img").attr("class", "card-image-top").attr("src", img);
+    }
+    const name = data.features[i].name;
+    if(name){
+      header.text(name);
+    }
+    const paragraph = buildParagraph(data.features[i]);
+    await sleep(millisecondsToWait);
    };
   });
 async function sleep(msec) {
     return new Promise(resolve => setTimeout(resolve, msec));
 }
-function buildPage() {
+const buildPage = () => {
   const svg = d3.select("body").append("svg")
     .attr("width", 960)
     .attr("height", 580);
@@ -41,7 +42,16 @@ function buildPage() {
     .attr("class", "card-body");
   const header = cardBody.append("h5")
     .attr("class", "card-title");
-  const paragraph = cardBody.append("p")
+  const p = cardBody.append("p")
     .attr("class", "card-text");
-  return [svg, card, cardBody, header, paragraph];
+  return [svg, card, cardBody, header, p];
+}
+const buildParagraph = (data) => {
+ if(!data.event || !data.dateOfEvent || !data.location){
+  return "";
+ }
+ else {
+  return `${data.event}: ${data.dateOfEvent}
+${data.location}`;
+ }
 }
