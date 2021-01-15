@@ -4,6 +4,7 @@ const svg = d3.select("body").append("svg")
 const card = d3.select("body").append("div")
   .attr("class", "card");
 const cardBody = card.append("div").attr("class", "card-body");
+const header = cardBody.append("h5").attr("class", "card-title");
  d3.json("places.geojson", async function(error, data) {
    let features = [];
    const millisecondsToWait = 500;
@@ -27,7 +28,7 @@ const cardBody = card.append("div").attr("class", "card-body");
      }
      const name = data.features[i].name;
      if(name){
-       paragraph.text(name);
+       header.text(name);
      }
      await sleep(millisecondsToWait);
    };
