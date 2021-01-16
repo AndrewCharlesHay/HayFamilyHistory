@@ -19,7 +19,7 @@ d3.json("places.geojson", async function(error, data) {
       .attr("d", path)
       .attr("class", "area")
       .attr("fill", "steelblue");
-    fillCard(data, card);
+    fillCard(data.features[i], card);
     await sleep(millisecondsToWait);
    };
   });
@@ -49,15 +49,15 @@ function buildParagraph(data) {
 ${data.location}`;
  }
 }
-function fillCard(data, card){
-   const img = data.features[i].img;
+function fillCard(feature, card){
+   const img = feature.img;
    if(img){
      card.image.attr("src", img);
    }
-   const name = data.features[i].name;
+   const name = feature.name;
    if(name){
      card.header.text(name);
    }
-   const paragraph = buildParagraph(data.features[i]);
+   const paragraph = buildParagraph(feature);
    card.paragraph.text(paragraph);
 }
