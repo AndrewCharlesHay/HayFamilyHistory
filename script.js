@@ -1,4 +1,4 @@
-const [svg, card, cardBody, header, p, image] = buildPage();
+const page = buildPage();
 let features = [];
 const millisecondsToWait = 500;
 d3.json("places.geojson", async function(error, data) {
@@ -16,15 +16,7 @@ d3.json("places.geojson", async function(error, data) {
       .attr("d", path)
       .attr("class", "area")
       .attr("fill", "steelblue");
-    const img = data.features[i].img;
-    if(img){
-      image.attr("src", img);
-    }
-    const name = data.features[i].name;
-    if(name){
-      header.text(name);
-    }
-    const paragraph = buildParagraph(data.features[i]);
+    fillPage(data, page);
     await sleep(millisecondsToWait);
    };
   });
@@ -44,9 +36,9 @@ function buildPage() {
     .attr("class", "card-body");
   const header = cardBody.append("h5")
     .attr("class", "card-title");
-  const p = cardBody.append("p")
+  const paragraph = cardBody.append("p")
     .attr("class", "card-text");
-  return [svg, card, cardBody, header, p, image];
+  return {svg, card, cardBody, header, paragraph, image};
 }
 function buildParagraph(data) {
  if(!data.event || !data.dateOfEvent || !data.location){
@@ -56,4 +48,16 @@ function buildParagraph(data) {
   return `${data.event}: ${data.dateOfEvent}
 ${data.location}`;
  }
+}
+function fillPage(data, page){
+   const img = data.features[i].img;
+   if(img){
+     page.image.attr("src", img);
+   }
+   const name = data.features[i].name;
+   if(name){
+     page.header.text(name);
+   }
+   const paragraph = buildParagraph(data.features[i]);
+   page.paragraph.text(paragraph);
 }
