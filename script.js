@@ -1,6 +1,9 @@
-const page = buildPage();
+const card = buildCard();
 let features = [];
 const millisecondsToWait = 500;
+const svg = d3.select("body").append("svg")
+  .attr("width", 960)
+  .attr("height", 580);
 d3.json("places.geojson", async function(error, data) {
    for(let i = 0; i < data.features.length; i++){
     features.push(data.features[i])
@@ -16,17 +19,14 @@ d3.json("places.geojson", async function(error, data) {
       .attr("d", path)
       .attr("class", "area")
       .attr("fill", "steelblue");
-    fillPage(data, page);
+    fillCard(data, card);
     await sleep(millisecondsToWait);
    };
   });
 async function sleep(msec) {
     return new Promise(resolve => setTimeout(resolve, msec));
 }
-function buildPage() {
-  const svg = d3.select("body").append("svg")
-    .attr("width", 960)
-    .attr("height", 580);
+function buildCard() {
   const card = d3.select("body").append("div")
     .attr("class", "card")
     .attr("style", "width: 18rem;");
@@ -49,15 +49,15 @@ function buildParagraph(data) {
 ${data.location}`;
  }
 }
-function fillPage(data, page){
+function fillCard(data, card){
    const img = data.features[i].img;
    if(img){
-     page.image.attr("src", img);
+     card.image.attr("src", img);
    }
    const name = data.features[i].name;
    if(name){
-     page.header.text(name);
+     card.header.text(name);
    }
    const paragraph = buildParagraph(data.features[i]);
-   page.paragraph.text(paragraph);
+   card.paragraph.text(paragraph);
 }
