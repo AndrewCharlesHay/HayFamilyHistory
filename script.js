@@ -38,7 +38,7 @@ function buildCard() {
     .attr("class", "card-title");
   const paragraph = cardBody.append("p")
     .attr("class", "card-text");
-  return {svg, card, cardBody, header, paragraph, image};
+  return { card, cardBody, header, paragraph, image };
 }
 function buildParagraph(data) {
  if(!data.event || !data.dateOfEvent || !data.location){
