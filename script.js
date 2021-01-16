@@ -52,7 +52,7 @@ ${data.location}`;
 function fillCard(feature, card){
    const img = feature.img;
    if(img){
-     card.image.attr("src", img);
+     card.image.attr("src", `photos/${img}`);
    }
    const name = feature.name;
    if(name){
