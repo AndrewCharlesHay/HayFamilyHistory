@@ -38,13 +38,14 @@ function buildPage() {
   const card = d3.select("body").append("div")
     .attr("class", "card")
     .attr("style", "width: 18rem;");
+  const image = card.append("img")
+    .attr("class", "card-image-top");
   const cardBody = card.append("div")
     .attr("class", "card-body");
   const header = cardBody.append("h5")
     .attr("class", "card-title");
   const p = cardBody.append("p")
     .attr("class", "card-text");
-  const image = card.append("img").attr("class", "card-image-top");
   return [svg, card, cardBody, header, p, image];
 }
 function buildParagraph(data) {
