@@ -1,24 +1,24 @@
-const [svg, card, cardBody, header, p] = buildPage();
+const [svg, card, cardBody, header, p, image] = buildPage();
 let features = [];
 const millisecondsToWait = 500;
 d3.json("places.geojson", async function(error, data) {
    for(let i = 0; i < data.features.length; i++){
-      features.push(data.features[i])
-      var group = svg.selectAll("g")
-        .data(features)
-        .enter()
-        .append("g");
+    features.push(data.features[i])
+    var group = svg.selectAll("g")
+      .data(features)
+      .enter()
+      .append("g");
 
-      var projection = d3.geo.mercator();
-      var path = d3.geo.path().projection(projection);
+    var projection = d3.geo.mercator();
+    var path = d3.geo.path().projection(projection);
 
-      var areas = group.append("path")
-        .attr("d", path)
-        .attr("class", "area")
-        .attr("fill", "steelblue");
-    const img = data.features[i].name;
+    var areas = group.append("path")
+      .attr("d", path)
+      .attr("class", "area")
+      .attr("fill", "steelblue");
+    const img = data.features[i].img;
     if(img){
-      card.append("img").attr("class", "card-image-top").attr("src", img);
+      image.attr("src", img);
     }
     const name = data.features[i].name;
     if(name){
@@ -44,7 +44,8 @@ function buildPage() {
     .attr("class", "card-title");
   const p = cardBody.append("p")
     .attr("class", "card-text");
-  return [svg, card, cardBody, header, p];
+  const image = card.append("img").attr("class", "card-image-top");
+  return [svg, card, cardBody, header, p, image];
 }
 function buildParagraph(data) {
  if(!data.event || !data.dateOfEvent || !data.location){
