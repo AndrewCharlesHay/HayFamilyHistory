@@ -33,8 +33,8 @@ function createCard() {
     .attr("style", "width: 18rem;");
   const image = card.append("img")
     .attr("class", "card-image-top")
-    .attr("style", "height: 18rem;")
-    .attr("style", "width: 18rem;");
+    .attr("style", "height: 200;")
+    .attr("style", "width: 200;");
   const cardBody = card.append("div")
     .attr("class", "card-body");
   const header = cardBody.append("h5")
