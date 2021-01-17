@@ -25,16 +25,22 @@ async function sleep(msec) {
 function createCard() {
   const card = d3.select("body").append("div")
     .attr("class", "card")
-    .attr("style", "width: 200px;");
-  const image = card.append("img")
+    .attr("style", "width: 500px;");
+  const row = card.append("div")
+  	.attr("class", "row no-gutters");
+  const imgCol = row.append("div")
+  	.attr("class", "col-sm-5");
+  const bodyCol = row.append("div")
+  	.attr("class", "col-sm-7");
+  const image = imgCol.append("img")
     .attr("class", "card-image-top");
-  const cardBody = card.append("div")
+  const body = bodyCol.append("div")
     .attr("class", "card-body");
-  const header = cardBody.append("h5")
+  const title = cardBody.append("h5")
     .attr("class", "card-title");
-  const paragraph = cardBody.append("p")
+  const text = cardBody.append("p")
     .attr("class", "card-text");
-  return { card, cardBody, header, paragraph, image };
+  return { title, text, image };
 }
 
 function updateMap(features, svg){
@@ -58,10 +64,10 @@ function updateCard(feature, card){
   }
   const name = feature.name;
   if(name){
-    card.header.text(name);
+    card.title.text(name);
   }
   const paragraph = createParagraph(feature);
-  card.paragraph.text(paragraph);
+  card.text.text(paragraph);
 }
 
 
