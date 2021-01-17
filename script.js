@@ -4,7 +4,7 @@ const MAP_WIDTH = 960;
 const svg = d3.select("body").append("svg")
   .attr("width", MAP_WIDTH)
   .attr("height", 580);
-const card = buildCard();
+const card = createCard();
 d3.json("places.geojson", async function(error, data) {
    for(let i = 0; i < data.features.length; i++){
     features.push(data.features[i])
@@ -20,14 +20,14 @@ d3.json("places.geojson", async function(error, data) {
       .attr("d", path)
       .attr("class", "area")
       .attr("fill", "steelblue");
-    fillCard(data.features[i], card);
+    updateCard(data.features[i], card);
     await sleep(MILLISECONDS_TO_WAIT);
    };
   });
 async function sleep(msec) {
     return new Promise(resolve => setTimeout(resolve, msec));
 }
-function buildCard() {
+function createCard() {
   const card = d3.select("body").append("div")
     .attr("class", "card")
     .attr("style", "width: 18rem;");
@@ -43,7 +43,7 @@ function buildCard() {
     .attr("class", "card-text");
   return { card, cardBody, header, paragraph, image };
 }
-function buildParagraph(data) {
+function createParagraph(data) {
  if(!data.event || !data.dateOfEvent || !data.location){
   return "";
  }
@@ -52,7 +52,7 @@ function buildParagraph(data) {
 ${data.location}`;
  }
 }
-function fillCard(feature, card){
+function updateCard(feature, card){
    const img = feature.img;
    if(img){
      card.image.attr("src", img);
@@ -61,6 +61,6 @@ function fillCard(feature, card){
    if(name){
      card.header.text(name);
    }
-   const paragraph = buildParagraph(feature);
+   const paragraph = createParagraph(feature);
    card.paragraph.text(paragraph);
 }
