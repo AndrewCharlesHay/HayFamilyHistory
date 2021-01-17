@@ -33,13 +33,13 @@ function createCard() {
   const bodyCol = row.append("div")
   	.attr("class", "col-sm-7");
   const image = imgCol.append("img")
-    .attr("class", "card-image-top");
+  	.attr("class", "card-image-top");
   const body = bodyCol.append("div")
-    .attr("class", "card-body");
-  const title = cardBody.append("h5")
-    .attr("class", "card-title");
-  const text = cardBody.append("p")
-    .attr("class", "card-text");
+  	.attr("class", "card-body");
+  const title = body.append("h5")
+  	.attr("class", "card-title");
+  const text = body.append("p")
+  	.attr("class", "card-text");
   return { title, text, image };
 }
 
