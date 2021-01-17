@@ -1,9 +1,9 @@
 let features = [];
 const MILLISECONDS_TO_WAIT = 500;
-const MAP_WIDTH = 960;
+const map = { width: "100%", height: 300 }
 const svg = d3.select("body").append("svg")
-  .attr("width", MAP_WIDTH)
-  .attr("height", 580);
+  .attr("width", map.width)
+  .attr("height", map.height);
 const card = createCard();
 d3.json("places.geojson", async function(error, data) {
    for(let i = 0; i < data.features.length; i++){
@@ -32,10 +32,7 @@ function createCard() {
     .attr("class", "card")
     .attr("style", "width: 200px;");
   const image = card.append("img")
-    .attr("class", "card-image-top")
-    .attr("style", "border-radius: 8px;")
-    .attr("style", "width: 200px;")
-    .attr("style", "height: 200px;");
+    .attr("class", "card-image-top");
   const cardBody = card.append("div")
     .attr("class", "card-body");
   const header = cardBody.append("h5")
