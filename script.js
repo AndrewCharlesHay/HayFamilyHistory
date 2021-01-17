@@ -5,11 +5,12 @@ const svg = d3.select("body")
 const card = createCard(); 
 d3.select(window).on("resize", sizeChange);
 d3.json("places.geojson", async function(error, data) {
-   for(let i = 0; i < data.features.length; i++){
-    features.push(data.features[i]);
-    updateMap(features, svg);
-    updateCard(data.features[i], card);
-    await sleep(MILLISECONDS_TO_WAIT);
+	for(let i = 0; i < data.features.length; i++){
+	   features.push(data.features[i]);
+	   updateMap(features, svg);
+	   updateCard(data.features[i], card);
+	   sizeChange();
+	   await sleep(MILLISECONDS_TO_WAIT);
    };
 });
 
