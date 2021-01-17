@@ -2,16 +2,7 @@ let features = [];
 const MILLISECONDS_TO_WAIT = 500;
 const svg = d3.select("body")
 	.append("svg")
-const card = createCard();
-var zoom = d3.behavior.zoom().translate([100,50]).scale(.5);
-
-vis = svg.append("svg:svg")
-     .attr("width", width)
-     .attr("height", height)
-     .call(zoom.on("zoom",zooming))
-           .append("svg:g")
-           .attr("transform","translate(100,50)scale(.5,.5)");  
-
+const card = createCard(); 
 d3.select(window).on("resize", sizeChange);
 d3.json("places.geojson", async function(error, data) {
    for(let i = 0; i < data.features.length; i++){
