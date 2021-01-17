@@ -6,6 +6,7 @@ const svg = d3.select("body").append("svg")
   .attr("height", map.height);
 const card = createCard();
 
+d3.select(window).on("resize", sizeChange);
 d3.json("places.geojson", async function(error, data) {
    for(let i = 0; i < data.features.length; i++){
     features.push(data.features[i]);
