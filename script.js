@@ -34,6 +34,7 @@ function createCard() {
   const image = card.append("img")
     .attr("class", "card-image-top")
     .attr("style", "height: 200px;")
+    .attr("style", "border-radius: 8px;")
     .attr("style", "width: 200px;");
   const cardBody = card.append("div")
     .attr("class", "card-body");
