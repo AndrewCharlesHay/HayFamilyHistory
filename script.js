@@ -1,6 +1,10 @@
 let features = [];
 const MILLISECONDS_TO_WAIT = 500;
-const svg = d3.select("body").append("svg");
+var zoom = d3.zoom()
+	.scaleExtent([.2, 10])
+	.on("zoom", zoomed);
+const svg = d3.select("body")
+	.append("svg").call(zoom);
 const card = createCard();
 
 d3.select(window).on("resize", sizeChange);
@@ -69,6 +73,9 @@ function updateCard(feature, card){
   card.text.text(paragraph);
 }
 
+function zoomed() {
+	mainContainer.attr("transform", d3.event.transform);
+}
 
 function createParagraph(data) {
  if(!data.event || !data.dateOfEvent || !data.location){
