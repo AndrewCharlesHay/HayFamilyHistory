@@ -15,7 +15,7 @@ d3.json("places.geojson", async function(error, data) {
 
 function sizeChange() {
   d3.select("g").attr("transform", "scale(" + $("body").width()/400 + ")");
-	$("svg").height($("body").width()*0.4);
+	$("svg").height($("body").width()*0.3);
 }
 
 async function sleep(msec) {
