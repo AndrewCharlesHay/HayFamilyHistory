@@ -1,7 +1,8 @@
 let features = [];
-const millisecondsToWait = 500;
+const MILLISECONDS_TO_WAIT = 500;
+const MAP_WIDTH = 960;
 const svg = d3.select("body").append("svg")
-  .attr("width", 960)
+  .attr("width", Map_WIDTH)
   .attr("height", 580);
 const card = buildCard();
 d3.json("places.geojson", async function(error, data) {
@@ -20,7 +21,7 @@ d3.json("places.geojson", async function(error, data) {
       .attr("class", "area")
       .attr("fill", "steelblue");
     fillCard(data.features[i], card);
-    await sleep(millisecondsToWait);
+    await sleep(MILLISECONDS_TO_WAIT);
    };
   });
 async function sleep(msec) {
@@ -31,7 +32,8 @@ function buildCard() {
     .attr("class", "card")
     .attr("style", "width: 18rem;");
   const image = card.append("img")
-    .attr("class", "card-image-top");
+    .attr("class", "card-image-top")
+    .attr("style", "width: 18rem;");
   const cardBody = card.append("div")
     .attr("class", "card-body");
   const header = cardBody.append("h5")
