@@ -1,9 +1,6 @@
 let features = [];
 const MILLISECONDS_TO_WAIT = 500;
-const map = { width: "150%", height: 300 }
-const svg = d3.select("body").append("svg")
-  .attr("width", map.width)
-  .attr("height", map.height);
+const svg = d3.select("body").append("svg");
 const card = createCard();
 
 d3.select(window).on("resize", sizeChange);
