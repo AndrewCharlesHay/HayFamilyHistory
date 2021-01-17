@@ -14,8 +14,8 @@ d3.json("places.geojson", async function(error, data) {
 });
 
 function sizeChange() {
-  d3.selectAll("g").attr("transform", "scale(" + $("body").width()/900 + ")");
-	$("svg").height($("body").width()*0.61);
+  d3.selectAll("g").attr("transform", "scale(" + $("body").width()/700 + ")");
+	$("svg").height($("body").width()*0.4);
 }
 
 async function sleep(msec) {
