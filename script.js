@@ -3,8 +3,7 @@ const MILLISECONDS_TO_WAIT = 500;
 const map = { width: "100%", height: 300 }
 const svg = d3.select("body").append("svg")
   .attr("width", map.width)
-  .attr("height", map.height)
-  .attr("transform", "scale(2)");
+  .attr("height", map.height);
 const card = createCard();
 
 d3.json("places.geojson", async function(error, data) {
@@ -15,6 +14,11 @@ d3.json("places.geojson", async function(error, data) {
     await sleep(MILLISECONDS_TO_WAIT);
    };
 });
+
+function sizeChange() {
+  d3.select("g").attr("transform", "scale(" + $("#container").width()/900 + ")");
+	$("svg").height($("#container").width()*0.618);
+}
 
 async function sleep(msec) {
     return new Promise(resolve => setTimeout(resolve, msec));
