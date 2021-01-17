@@ -24,8 +24,7 @@ async function sleep(msec) {
 
 function createCard() {
   const card = d3.select("body").append("div")
-    .attr("class", "card")
-    .attr("style", "width: 500px;");
+  	.attr("class", "card");
   const row = card.append("div")
   	.attr("class", "row no-gutters");
   const imgCol = row.append("div")
