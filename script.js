@@ -33,6 +33,7 @@ function buildCard() {
     .attr("style", "width: 18rem;");
   const image = card.append("img")
     .attr("class", "card-image-top")
+    .attr("style", "height: 18rem;")
     .attr("style", "width: 18rem;");
   const cardBody = card.append("div")
     .attr("class", "card-body");
