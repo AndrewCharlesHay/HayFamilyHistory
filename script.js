@@ -3,7 +3,8 @@ const MILLISECONDS_TO_WAIT = 500;
 const map = { width: "100%", height: 300 }
 const svg = d3.select("body").append("svg")
   .attr("width", map.width)
-  .attr("height", map.height);
+  .attr("height", map.height)
+  .attr("transform", "scale(2)");
 const card = createCard();
 
 d3.json("places.geojson", async function(error, data) {
