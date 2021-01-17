@@ -30,7 +30,7 @@ async function sleep(msec) {
 function createCard() {
   const card = d3.select("body").append("div")
     .attr("class", "card")
-    .attr("style", "width: 18rem;");
+    .attr("style", "width: 200;");
   const image = card.append("img")
     .attr("class", "card-image-top")
     .attr("style", "height: 200;")
