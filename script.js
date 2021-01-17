@@ -1,9 +1,9 @@
-const card = buildCard();
 let features = [];
 const millisecondsToWait = 500;
 const svg = d3.select("body").append("svg")
   .attr("width", 960)
   .attr("height", 580);
+const card = buildCard();
 d3.json("places.geojson", async function(error, data) {
    for(let i = 0; i < data.features.length; i++){
     features.push(data.features[i])
