@@ -6,8 +6,7 @@
 svg{
     width: 100%;
 }
-.card{
-    margin-left: 10%;
-    width: 80%;
-    margin-right: 10%;
+.row{
+  display: flex;
+  align-items: center;
 }
