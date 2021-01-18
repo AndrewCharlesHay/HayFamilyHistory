@@ -27,11 +27,11 @@ function createCard() {
   const card = d3.select("body").append("div")
   	.attr("class", "card");
   const row = card.append("div")
-  	.attr("class", "row no-gutters");
+  	.attr("class", "container");
   const imgCol = row.append("div")
-  	.attr("class", "col-sm-5");
+  	.attr("class", "c1");
   const bodyCol = row.append("div")
-  	.attr("class", "col-sm-7");
+  	.attr("class", "c2");
   const image = imgCol.append("img")
   	.attr("class", "card-image-top");
   const body = bodyCol.append("div")
