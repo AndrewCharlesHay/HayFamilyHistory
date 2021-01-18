@@ -1,8 +1,7 @@
 let features = [];
 const MILLISECONDS_TO_WAIT = 500;
 const svg = d3.select("body")
-	.append("svg")
-	.translate(50, 50);
+	.append("svg");
 const card = createCard(); 
 d3.select(window).on("resize", sizeChange);
 d3.json("places.geojson", async function(error, data) {
@@ -16,7 +15,7 @@ d3.json("places.geojson", async function(error, data) {
 });
 
 function sizeChange() {
-  d3.selectAll("g").attr("transform", "scale(" + $("body").width()/600 + ")");
+  d3.selectAll("g").attr("transform", "translate(60, 60) scale(" + $("body").width()/600 + ")");
 	$("svg").height($("body").width()*0.35);
 }
 
@@ -53,9 +52,10 @@ function updateMap(features, svg){
   const path = d3.geo.path().projection(projection);
 
   const areas = group.append("path")
-    .attr("d", path)
-    .attr("class", "area")
-    .attr("fill", "steelblue");
+  	.attr("d", path)
+  	.attr("class", "area")
+  	.attr("fill", "steelblue")
+  	.attr("transform", "translate(60, 60)");
 }
 
 function updateCard(feature, card){
