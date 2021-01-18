@@ -1,5 +1,7 @@
 let features = [];
 const MILLISECONDS_TO_WAIT = 500;
+const X_TRANSLATE = -40;
+const Y_TRANSLATE = -20;
 const svg = d3.select("body")
 	.append("svg");
 const card = createCard(); 
@@ -15,7 +17,7 @@ d3.json("places.geojson", async function(error, data) {
 });
 
 function sizeChange() {
-  d3.selectAll("g").attr("transform", "translate(-40, -20) scale(" + $("body").width()/600 + ")");
+  d3.selectAll("g").attr("transform", `translate(${X_TRANSLATE}, ${Y_TRANSLATE}) scale(${$("body").width()/600})`);
 	$("svg").height($("body").width()*0.35);
 }
 
