@@ -2,6 +2,7 @@ let features = [];
 const MILLISECONDS_TO_WAIT = 500;
 const svg = d3.select("body")
 	.append("svg")
+	.translate(50, 50);
 const card = createCard(); 
 d3.select(window).on("resize", sizeChange);
 d3.json("places.geojson", async function(error, data) {
