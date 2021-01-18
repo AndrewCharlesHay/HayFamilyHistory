@@ -36,9 +36,9 @@ function createCard() {
   	.attr("class", "card-image-top");
   const body = bodyCol.append("div")
   	.attr("class", "card-body");
-  const title = body.append("h5")
+  const title = body.append("h2")
   	.attr("class", "card-title");
-  const text = body.append("p")
+  const text = body.append("h5")
   	.attr("class", "card-text");
   return { title, text, image };
 }
