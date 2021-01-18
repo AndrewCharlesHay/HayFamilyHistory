@@ -15,7 +15,7 @@ d3.json("places.geojson", async function(error, data) {
 });
 
 function sizeChange() {
-  d3.selectAll("g").attr("transform", "translate(60, 60) scale(" + $("body").width()/600 + ")");
+  d3.selectAll("g").attr("transform", "translate(-40, -20) scale(" + $("body").width()/600 + ")");
 	$("svg").height($("body").width()*0.35);
 }
 
@@ -55,7 +55,7 @@ function updateMap(features, svg){
   	.attr("d", path)
   	.attr("class", "area")
   	.attr("fill", "steelblue")
-  	.attr("transform", "translate(60, 60)");
+  	.attr("transform", "translate(-40, -20)");
 }
 
 function updateCard(feature, card){
