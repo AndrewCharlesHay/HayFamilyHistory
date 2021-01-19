@@ -1,5 +1,5 @@
 let features = [];
-const MILLISECONDS_TO_WAIT = 500;
+const MILLISECONDS_TO_WAIT = 1500;
 const X_TRANSLATE = -40;
 const Y_TRANSLATE = -20;
 const svg = d3.select("body")
