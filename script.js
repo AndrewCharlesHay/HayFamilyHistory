@@ -57,7 +57,7 @@ function updateMap(features, svg){
   	.attr("d", path)
   	.attr("class", "area")
   	.attr("fill", "steelblue")
-  	.attr("transform", "translate(-40, -20)");
+  	.attr("transform", "translate(${X_TRANSLATE}, ${Y_TRANSLATE})");
 }
 
 function updateCard(feature, card){
