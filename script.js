@@ -73,7 +73,7 @@ function updateCard(feature, card){
     card.title.text(name);
   }
   const paragraph = createParagraph(feature);
-  card.EventText.text(paragraph);
+  card.eventText.text(paragraph);
   if(data.location){
 	card.locationText.text(data.location);
   }
