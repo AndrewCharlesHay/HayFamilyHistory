@@ -40,9 +40,11 @@ function createCard() {
   	.attr("class", "card-body");
   const title = body.append("h2")
   	.attr("class", "card-title");
-  const text = body.append("h5")
+  const eventText = body.append("h5")
   	.attr("class", "card-text");
-  return { title, text, image };
+  const locationText = body.append("h6")
+  	.attr("class", "card-text");
+  return { title, eventText, locationText, image };
 }
 
 function updateMap(features, svg){
@@ -71,15 +73,17 @@ function updateCard(feature, card){
     card.title.text(name);
   }
   const paragraph = createParagraph(feature);
-  card.text.text(paragraph);
+  card.EventText.text(paragraph);
+  if(data.location){
+	card.locationText.text(data.location);
+  }
 }
 
 function createParagraph(data) {
- if(!data.event || !data.dateOfEvent || !data.location){
+ if(!data.event || !data.dateOfEvent){
   return "";
  }
  else {
-  return `${data.event}: ${data.dateOfEvent}
-${data.location}`;
+  return `${data.event}: ${data.dateOfEvent}`;
  }
 }
