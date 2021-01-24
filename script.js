@@ -74,16 +74,16 @@ function updateCard(feature, card){
   }
   const paragraph = createParagraph(feature);
   card.eventText.text(paragraph);
-  if(data.location){
-	card.locationText.text(data.location);
+  if(feature.location){
+	card.locationText.text(feature.location);
   }
 }
 
-function createParagraph(data) {
- if(!data.event || !data.dateOfEvent){
+function createParagraph(feature) {
+ if(!feature.event || !feature.dateOfEvent){
   return "";
  }
  else {
-  return `${data.event}: ${data.dateOfEvent}`;
+  return `${feature.event}: ${feature.dateOfEvent}`;
  }
 }
