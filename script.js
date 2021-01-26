@@ -10,7 +10,6 @@ d3.json("places.geojson", (error, data) => {
 	for(let i = 0; i < data.features.length; i++){
 	   features.push(data.features[i]);
 	   updateMap(features, svg);
-	   updateCard(data.features[i], card);
 	   sizeChange();
 	};
 });
@@ -57,18 +56,18 @@ function createCard() {
 }
 
 function updateMap(features, svg){
-  const group = svg.selectAll("g")
-    .data(features)
-    .enter()
-    .append("g");
-  const projection = d3.geo.mercator();
-  const path = d3.geo.path().projection(projection);
-
-  const areas = group.append("path")
-  	.attr("d", path)
-  	.attr("class", "area")
-  	.attr("fill", "steelblue")
-  	.attr("transform", "translate(${X_TRANSLATE}, ${Y_TRANSLATE})");
+	const fill = features[0].name ? "steelblue" : "gold";
+	const group = svg.selectAll("g")
+		.data(features)
+		.enter()
+		.append("g");
+  	const projection = d3.geo.mercator();
+  	const path = d3.geo.path().projection(projection);
+  	const areas = group.append("path")
+  		.attr("d", path)
+  		.attr("class", "area")
+  		.attr("fill", fill)
+  		.attr("transform", "translate(${X_TRANSLATE}, ${Y_TRANSLATE})");
 }
 
 function updateCard(feature, card){
