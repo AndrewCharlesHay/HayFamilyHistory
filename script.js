@@ -64,13 +64,12 @@ function updateMap(features, svg){
   	const path = d3.geo.path().projection(projection);
   	const areas = group.append("path")
   		.attr("d", path)
-  		.attr("class", "area")
-  		.attr("transform", "translate(${X_TRANSLATE}, ${Y_TRANSLATE})");
+  		.attr("class", "area");
 	if(features[0].name){
 		areas.attr("fill", "steelblue");
 	}
 	else {
-		areas.style("fill", "none");
+		areas.attr("fill", "none");
 	}
 }
 
