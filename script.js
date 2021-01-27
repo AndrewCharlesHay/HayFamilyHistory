@@ -56,6 +56,7 @@ function createCard() {
 }
 
 function updateMap(features, svg){
+	const fill: string = features[0].name ? "steelblue" : "none"
 	const group = svg.selectAll("g")
 		.data(features)
 		.enter()
@@ -64,13 +65,9 @@ function updateMap(features, svg){
   	const path = d3.geo.path().projection(projection);
   	const areas = group.append("path")
   		.attr("d", path)
-  		.attr("class", "area");
-	if(features[0].name){
-		areas.attr("fill", "steelblue");
-	}
-	else {
-		areas.attr("fill", "none");
-	}
+  		.attr("class", "area")
+		.style("border", 1)
+		.style("fill", fill);
 }
 
 function updateCard(feature, card){
