@@ -56,7 +56,7 @@ function createCard() {
 }
 
 function updateMap(features, svg){
-	const fill: string = features[0].name ? "steelblue" : "none"
+	const fill = features[0].name ? "steelblue" : "none"
 	const group = svg.selectAll("g")
 		.data(features)
 		.enter()
