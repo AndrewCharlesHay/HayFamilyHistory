@@ -6,13 +6,13 @@ const svg = d3.select("body")
 	.append("svg");
 const card = createCard(); 
 d3.select(window).on("resize", sizeChange);
-d3.json("places.geojson", (error, data) => {
-	for(let i = 0; i < data.features.length; i++){
-	   features.push(data.features[i]);
-	   updateMap(features, svg);
-	   sizeChange();
-	};
-});
+// d3.json("places.geojson", (error, data) => {
+// 	for(let i = 0; i < data.features.length; i++){
+// 	   features.push(data.features[i]);
+// 	   updateMap(features, svg);
+// 	   sizeChange();
+// 	};
+// });
 
 d3.json("events.geojson", async function(error, data) {
 	for(let i = 0; i < data.features.length; i++){
