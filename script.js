@@ -70,7 +70,7 @@ function updateMap(features, svg){
 		areas.attr("fill", "steelblue");
 	}
 	else {
-		areas.style("stroke-width", 1);
+		areas.style("fill", "none");
 	}
 }
 
