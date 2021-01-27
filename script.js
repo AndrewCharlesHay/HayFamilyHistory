@@ -56,7 +56,6 @@ function createCard() {
 }
 
 function updateMap(features, svg){
-	const fill = features[0].name ? "steelblue" : "none";
 	const group = svg.selectAll("g")
 		.data(features)
 		.enter()
@@ -66,8 +65,13 @@ function updateMap(features, svg){
   	const areas = group.append("path")
   		.attr("d", path)
   		.attr("class", "area")
-  		.attr("fill", fill)
   		.attr("transform", "translate(${X_TRANSLATE}, ${Y_TRANSLATE})");
+	if(features[0].name){
+		areas.attr("fill", "steelblue");
+	}
+	else {
+		areas.style("stroke-width", 1);
+	}
 }
 
 function updateCard(feature, card){
