@@ -89,9 +89,10 @@ function updateCard(feature, card){
 
 function createParagraph(feature) {
  if(!feature.event || !feature.dateOfEvent){
-  return "";
+	 return "";
  }
  else {
-  return `${feature.event}: ${feature.dateOfEvent}`;
+	 const event = feature.event == "Death" ? "Passed" : feature.event;
+	 return `${event}: ${feature.dateOfEvent}`;
  }
 }
