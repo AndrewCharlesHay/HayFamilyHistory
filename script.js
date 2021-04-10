@@ -70,7 +70,7 @@ function updateMap(features, svg){
 		.style("fill", fill);
 }
 
-function async updateCard(feature, card){
+const updateCard = async (feature, card) => {
 	let img = feature.img;
   	if(!img){
 		img = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
@@ -87,7 +87,7 @@ function async updateCard(feature, card){
 	if(feature.location){
 		card.locationText.text(feature.location);
 	}
-}
+};
 
 function createParagraph(feature) {
  if(!feature.event || !feature.dateOfEvent){
