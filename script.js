@@ -69,7 +69,6 @@ function updateMap(features, svg){
 		.style("border", 1)
 		.style("fill", fill);
 }
-
 const updateCard = async (feature, card) => {
 	let img = feature.img;
   	if(!img){
